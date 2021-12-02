@@ -1,7 +1,17 @@
 import React from 'react';
 import './Editor.css';
 
-export default function Editor({ head, setHead, torso, setTorso, legs, setLegs, setHeadCount }) {
+export default function Editor({
+  head,
+  setHead,
+  torso,
+  setTorso,
+  legs,
+  setLegs,
+  setHeadCount,
+  setTorsoCount,
+  setLegCount,
+}) {
   const handleHead = (e) => {
     setHead(e.target.value);
     setHeadCount((prevState) => prevState + 1);
@@ -9,10 +19,12 @@ export default function Editor({ head, setHead, torso, setTorso, legs, setLegs, 
 
   const handleTorso = (e) => {
     setTorso(e.target.value);
+    setTorsoCount((prevState) => prevState + 1);
   };
 
   const handleLegs = (e) => {
     setLegs(e.target.value);
+    setLegCount((prevState) => prevState + 1);
   };
 
   return (
