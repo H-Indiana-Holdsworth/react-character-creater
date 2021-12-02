@@ -1,12 +1,17 @@
 import React from 'react';
 import './Editor.css';
 
-export default function Editor({ head, setHead, torso, setTorso }) {
+export default function Editor({ head, setHead, torso, setTorso, legs, setLegs }) {
   const handleHead = (e) => {
     setHead(e.target.value);
   };
+
   const handleTorso = (e) => {
     setTorso(e.target.value);
+  };
+
+  const handleLegs = (e) => {
+    setLegs(e.target.value);
   };
 
   return (
@@ -20,6 +25,11 @@ export default function Editor({ head, setHead, torso, setTorso }) {
         <option value={'black-torso'}>Dark torso</option>
         <option value={'red-torso'}>Red torso</option>
         <option value={'woman-torso'}>Woman torso</option>
+      </select>
+      <select value={legs} onChange={handleLegs}>
+        <option value={'black-legs'}>Dark legs</option>
+        <option value={'lego-legs'}>Lego legs</option>
+        <option value={'white-legs'}>Light legs</option>
       </select>
     </div>
   );
