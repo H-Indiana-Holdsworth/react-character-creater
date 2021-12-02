@@ -1,9 +1,10 @@
 import React from 'react';
 import './Editor.css';
 
-export default function Editor({ head, setHead, torso, setTorso, legs, setLegs }) {
+export default function Editor({ head, setHead, torso, setTorso, legs, setLegs, setHeadCount }) {
   const handleHead = (e) => {
     setHead(e.target.value);
+    setHeadCount((prevState) => prevState + 1);
   };
 
   const handleTorso = (e) => {
