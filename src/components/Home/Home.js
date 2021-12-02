@@ -7,11 +7,13 @@ import './Home.css';
 
 export default function Home() {
   const [head, setHead] = useState('head');
+  const [torso, setTorso] = useState('torso');
+  const [legs, setLegs] = useState('legs');
 
   return (
     <main>
-      <Preview {...{ head }} />
-      <Editor {...{ head, setHead }} />
+      <Preview {...{ head, torso, legs }} />
+      <Editor {...{ head, setHead, torso, setTorso, legs, setLegs }} />
     </main>
   );
 }
