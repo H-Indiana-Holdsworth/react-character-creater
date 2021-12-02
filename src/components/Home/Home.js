@@ -12,6 +12,8 @@ export default function Home() {
   const [headCount, setHeadCount] = useState(0);
   const [torsoCount, setTorsoCount] = useState(0);
   const [legCount, setLegCount] = useState(0);
+  const [phrase, setPhrase] = useState('');
+  const [phraseList, setPhraseList] = useState([]);
 
   return (
     <main>
@@ -28,11 +30,22 @@ export default function Home() {
           setHeadCount,
           setTorsoCount,
           setLegCount,
+          phrase,
+          setPhrase,
+          setPhraseList,
         }}
       />
       {!!headCount && <p>You have changed head {headCount} times</p>}
       {!!torsoCount && <p>You have changed torso {torsoCount} times</p>}
       {!!legCount && <p>You have changed legs {legCount} times</p>}
+      {!!phraseList.length && (
+        <div>
+          Your intergalactic catchprases have been:
+          {phraseList.map((elem) => (
+            <p key={elem}>{elem}</p>
+          ))}
+        </div>
+      )}
     </main>
   );
 }

@@ -11,6 +11,9 @@ export default function Editor({
   setHeadCount,
   setTorsoCount,
   setLegCount,
+  phrase,
+  setPhrase,
+  setPhraseList,
 }) {
   const handleHead = (e) => {
     setHead(e.target.value);
@@ -25,6 +28,13 @@ export default function Editor({
   const handleLegs = (e) => {
     setLegs(e.target.value);
     setLegCount((prevState) => prevState + 1);
+  };
+
+  const handleClick = () => {
+    // add new phrase to list using setPhraseList
+    setPhraseList((prevState) => [...prevState, phrase]);
+    // reset input by setting phrase to empty string using setPhrase
+    setPhrase('');
   };
 
   return (
@@ -44,6 +54,8 @@ export default function Editor({
         <option value={'lego-legs'}>Lego legs</option>
         <option value={'white-legs'}>Light legs</option>
       </select>
+      <input type="text" value={phrase} onChange={(e) => setPhrase(e.target.value)} />
+      <button onClick={handleClick}>Save</button>
     </div>
   );
 }
